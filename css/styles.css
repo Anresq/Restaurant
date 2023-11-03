@@ -1,0 +1,275 @@
+
+
+
+/* Importo las fuentes que utilizaré desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+
+/* Creación de variables de uso frecuente */
+:root {
+    --success: #ffb84d;
+    --dark: #131313;
+    --primary: rgb(242, 178, 46);
+    --light: #eaeaea;
+}
+
+
+
+/*  ================================================================
+            ESCRITORIO (XL revisemos en 1366px en adelante)
+    ================================================================*/
+
+/* Estilos generales de la página */
+* {
+    /* Quitar los valores predeterminados */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* Letra del texto */
+    font-family: 'Dosis', sans-serif;
+}
+
+
+
+body {
+    /* La mínima altura que tendrá sera la altura de la pantalla */
+    min-height: 100vh;
+}
+
+
+a {
+    /* Para quitarle el subrayado que se les asigna automáticamente */
+    text-decoration: none;
+}
+
+
+/* Cabecera */
+.header {
+    display: flex;
+    /* Dsitribuir todo de forma simétrica, elemento a elemento, y de elemento a esquinas*/
+    justify-content: space-evenly;
+    /* Centrado */
+    align-items: center;
+    /* Fijarlo cuando nos movamos y hay que especificarle las coordenadas */
+    position: fixed;
+    /* Especificación de coordenadas del position:fixed, anclo al inicio y a la izquierda*/
+    top: 0;
+    left: 0;
+    /* Toma todo el ancho posible */
+    width: 100%;
+    padding: 10px;
+}
+
+
+.header .cont-logo {
+    display: flex;
+    /* Esto es porque quiero el icono arriba del texto */
+    flex-direction: column;
+    /* Centrar verticalmente el icono con el texto del mismo */
+    align-items: center;
+}
+
+
+/* Icono en el header */
+.header .cont-logo img {
+    /* Le doy tamaño al icono */
+    height: 80px;
+
+}
+
+
+/* Letra del icono en el header */
+.header .cont-logo p {
+    /* Tamaño de letra */
+    font-size: 30px;
+    /* Tipo de letra y cursiva */
+    font-family: 'Playfair Display SC', sans-serif;
+    ;
+    /* Negrilla */
+    font-weight: bold;
+    /* Color */
+    color: var(--light);
+}
+
+/* Anclas del header */
+.header .nav-bar a {
+    /* Borde */
+    border: 2px solid var(--primary);
+    /* Espaciamiento entre lo interno y el borde */
+    padding: 3px 10px;
+    /* Bordes bordeados */
+    border-radius: 10px;
+    /* Color del borde */
+    color: var(--primary);
+    /* Tamaño de letra */
+    font-size: 20px;
+    /* Margen a la derecha */
+    margin-right: 10px;
+    transition: 0.5s all;
+}
+
+.header .nav-bar a:hover{
+    background: var(--primary);
+    color: var(--dark);
+    font-weight: bold;
+    
+}
+ .navbar_mobile {
+    display: none;
+ }
+/* Banner */
+.banner {
+    /* Altura */
+    height: 100vh;
+    /* Ancho */
+    width: 100%;
+    /* Se pueden poner imagenes o gradientes, en este caso se pusieron gradientes
+    primero se pone el primer color preferido y luego el otro, también se pone
+    la opacidad de cada uno, y la suma de ambos debe dar 100% para que se note
+    bien cada color */
+    background-image: linear-gradient(120deg, var(--dark) 60%, var(--success) 40%);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.banner_cont {
+    width: fit-content;
+}
+
+.banner .banner_cont h3 {
+    font-size: 40px;
+    color: var(--light)
+}
+
+.banner .banner_cont h2 {
+    font-size: 90px;
+    color: var(--light);
+}
+
+.banner .banner_cont p{
+    font-size: 18px;
+    color: #9e9898;
+    width: 600px;
+    margin-bottom: 40px;
+}
+.banner .banner_cont .btn_home{
+    background: #ff2e02;
+    padding: 10px 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--light);
+    border-radius: 6px;
+    font-size: 20px;
+    border:2px solid #ff2e02;
+    transition: 0.3s;
+}
+
+.banner .banner_cont .btn_home:hover{
+    background: transparent;
+    color:#ff2e02;
+}
+
+.banner .banner_img img{
+    max-width: 700px;
+    width: 95%;
+    margin-top: 100px;
+    animation: animation_img_banner 20s linear infinite;
+}
+/*  ================== ==============================================
+            MOVILES (Revisamos en 768px hacia abajo)
+    ================================================================*/
+/* Método para cambiar en caso de que la pantalla tenga tamaño diferente */
+@media (max-width: 768px) {
+
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--dark);
+    }
+
+    .header .nav-bar{
+        display: none;
+    }
+     
+    .header .cont-logo p{
+        font-size: 12px;
+    }
+
+    .navbar_mobile{
+        display: block;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background: var(--primary);
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 200 ;
+    }
+
+    .navbar_mobile a {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        padding: 10%;
+        background: var(--dark);
+        border:2px solid var(--primary);
+        color: var(--primary);
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar_mobile a:hover{
+        background: var(--primary);
+        color: var(--dark);
+    }
+} 
+/* BANNER */
+.banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.banner .banner_cont h3{
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.banner .banner_cont h2{
+    font-size: 50px;
+}
+
+.banner .banner_cont p {
+    width: auto;
+}
+
+.banner .banner_cont {
+    width: 100%;
+    padding: 20px;
+}
+
+.banner .banner_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes animation_img_banner{
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
